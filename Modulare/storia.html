@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storia - Ferrari</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="icon" href="../assets/img/favicon.png">
+</head>
+<body>
+    <!-- Include del menu -->
+    <div id="menu-container"></div>
+
+    <!-- Contenuto principale - semplice immagine centrale con titolo e testo -->
+    <section class="content-page">
+        <h1>La Storia Ferrari</h1>
+        <p class="intro-text">Un viaggio lungo oltre 75 anni di passione, innovazione e eccellenza italiana nel mondo delle auto sportive e delle corse.</p>
+        
+        <div class="page-image">
+            <img src="../assets/img/storia.jpg" alt="Storia Ferrari" />
+        </div>
+        
+        <div class="text-content">
+            <h2>Dalle origini a oggi</h2>
+            <p>
+                La storia di Ferrari inizia nel 1947 con la fondazione ufficiale dell'azienda da parte di Enzo Ferrari, ma le sue radici risalgono al 1929 quando Enzo fondò la Scuderia Ferrari, inizialmente per sponsorizzare piloti dilettanti di Modena.
+            </p>
+            <p>
+                Nel corso dei decenni, Ferrari ha costruito una storia incomparabile, vincendo numerosi titoli mondiali in Formula 1 e producendo alcune delle automobili più iconiche e desiderate al mondo. La passione per l'eccellenza, l'innovazione tecnologica e l'inconfondibile design italiano hanno reso il marchio del Cavallino Rampante un simbolo universalmente riconosciuto.
+            </p>
+            <p>
+                Oggi Ferrari prosegue il suo cammino verso il futuro, abbracciando le sfide della mobilità sostenibile senza rinunciare alle prestazioni e all'emozione che da sempre contraddistinguono le sue vetture.
+            </p>
+        </div>
+    </section>
+
+    <!-- Include del footer -->
+    <div id="footer-container"></div>
+    <!-- Scroll Up Button -->
+         
+    <script src="js_modulare/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Carica i componenti
+            loadComponent('menu-container', 'menu.html', function() {
+                // Imposta la voce di menu attiva
+                document.getElementById('nav-storia').classList.add('active');
+            });
+            loadComponent('footer-container', 'footer.html');
+        });
+    </script>
+</body>
+</html>

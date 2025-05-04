@@ -1,0 +1,1497 @@
+/* =========================================
+   RESET E STILI BASE
+   ========================================= */
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --ferrari-red: #ff2800;
+    --ferrari-red-dark: #cc2000;
+    --ferrari-yellow: #fff200;
+    --dark-gray: #222;
+    --light-gray: #f5f5f5;
+    --medium-gray: #777;
+    --text-color: #333;
+    --white: #fff;
+    --shadow-sm: 0 5px 15px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.15);
+    --shadow-lg: 0 15px 35px rgba(0, 0, 0, 0.2);
+    --transition: all 0.3s ease;
+}
+
+@font-face {
+    font-family: 'Ferrari Font';
+    src: url('../fonts/ferrari-font.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--white);
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-padding {
+    padding: 80px 0;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: var(--transition);
+    letter-spacing: 0.5px;
+    border: none;
+    outline: none;
+}
+
+.btn-primary {
+    background-color: var(--ferrari-red);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background-color: var(--ferrari-red-dark);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--ferrari-red);
+    border: 2px solid var(--ferrari-red);
+}
+
+.btn-outline:hover {
+    background-color: var(--ferrari-red);
+    color: var(--white);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+/* =========================================
+   HEADER E NAVIGAZIONE
+   ========================================= */
+header {
+    background-color: var(--ferrari-red);
+    padding: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    padding: 0 30px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    transition: var(--transition);
+    height: 80px;
+    margin-right: 1px; 
+}
+
+.logo span {
+    color: var(--white);
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-left: 10px;
+    font-family: 'Ferrari Font', 'Helvetica Neue', Arial, sans-serif;
+    letter-spacing: 1px;
+}
+
+/* Menu allineato a destra */
+nav {
+    display: flex;
+    align-items: center;
+    margin-left: auto; /* Spinge il menu a destra */
+    justify-content: flex-end;
+}
+
+nav ul {
+    display: flex;
+    gap: 5px;
+    justify-content: flex-end; /* Allineamento a destra degli elementi */
+}
+
+nav ul li a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    transition: var(--transition);
+    padding: 10px 15px;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+    position: relative;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background-color: var(--white);
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+    width: 70%;
+}
+
+nav ul li a.active {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+nav ul li a.active::after {
+    width: 70%;
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.menu-toggle span {
+    width: 30px;
+    height: 3px;
+    background-color: var(--white);
+    margin: 3px 0;
+    transition: var(--transition);
+    border-radius: 3px;
+}
+
+.header-scrolled {
+    height: 70px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.header-scrolled .logo img {
+    height: 40px;
+}
+
+/* =========================================
+   SPOTLIGHT / HERO SECTION
+   ========================================= */
+.spotlight {
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    margin-top: 80px;
+}
+
+.spotlight::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.2) 100%);
+}
+
+.spotlight-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 80px;
+}
+
+.spotlight-content {
+    color: var(--white);
+    max-width: 700px;
+    animation: fadeInUp 1s ease-out;
+    margin-left: 5%;
+}
+
+.spotlight-content h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-weight: 700;
+    line-height: 1.2;
+    position: relative;
+}
+
+.spotlight-content h1::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -15px;
+    width: 100px;
+    height: 5px;
+    background-color: var(--ferrari-red);
+    border-radius: 3px;
+}
+
+.spotlight-content h2 {
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin-top: 30px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    max-width: 90%;
+}
+
+.spotlight-content .btn {
+    margin-top: 40px;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================================
+   CARDS SECTION
+   ========================================= */
+.section-title {
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+}
+
+.section-title h2 {
+    font-size: 2.5rem;
+    color: var(--text-color);
+    position: relative;
+    display: inline-block;
+    padding-bottom: 15px;
+}
+
+.section-title h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--ferrari-red);
+    border-radius: 4px;
+}
+
+.section-title p {
+    color: var(--medium-gray);
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 20px auto 0;
+}
+
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 0 20px;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.card {
+    background-size: cover;
+    background-position: center;
+    height: 320px;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.2) 60%, rgba(0, 0, 0, 0) 100%);
+    opacity: 0.9;
+    transition: var(--transition);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+}
+
+.card:hover::before {
+    opacity: 0.7;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.5) 60%, rgba(0, 0, 0, 0.2) 100%);
+}
+
+.card-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px;
+    color: var(--white);
+    z-index: 1;
+    transform: translateY(0);
+    transition: var(--transition);
+}
+
+.card:hover .card-content {
+    transform: translateY(-10px);
+}
+
+.card h3 {
+    margin-bottom: 12px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 12px;
+}
+
+.card h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background-color: var(--ferrari-red);
+    transition: var(--transition);
+}
+
+.card:hover h3::after {
+    width: 70px;
+}
+
+.card p {
+    font-size: 1rem;
+    margin-bottom: 15px;
+    opacity: 0.9;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.3s ease 0.1s;
+}
+
+.card:hover p {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.card-link {
+    display: inline-flex;
+    align-items: center;
+    color: var(--white);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    margin-top: 10px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease 0.2s;
+}
+
+.card:hover .card-link {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.arrow {
+    margin-left: 8px;
+    transition: var(--transition);
+}
+
+.card-link:hover .arrow {
+    transform: translateX(5px);
+}
+
+/* Card backgrounds */
+.card-storia {
+    background-image: url('../img/storia.jpg');
+}
+
+.card-gruppo {
+    background-image: url('../img/ferrari-factory.jpg');
+}
+
+.card-sostenibilita {
+    background-image: url('../img/sostenibilita1.jpg');
+}
+
+.card-management {
+    background-image: url('../img/management.jpg');
+}
+
+/* =========================================
+   SLIDER
+   ========================================= */
+.slider {
+    margin: 80px 0;
+    overflow: hidden;
+    position: relative;
+    background-color: var(--light-gray);
+    padding: 40px 0;
+}
+
+.slider::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(to right, var(--ferrari-red), var(--ferrari-yellow));
+}
+
+.slider-title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.slider-title h3 {
+    font-size: 2rem;
+    color: var(--text-color);
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.slider-title h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: var(--ferrari-red);
+    border-radius: 3px;
+}
+
+.slider-track {
+    display: flex;
+    animation: sliderAnimation 45s linear infinite;
+}
+
+.slider-track:hover {
+    animation-play-state: paused;
+}
+
+.slider img {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    margin-right: 20px;
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+.slider img:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-md);
+}
+
+@keyframes sliderAnimation {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-200%); }
+}
+
+/* =========================================
+   CONTENT PAGES (STORIA, GRUPPO, MANAGEMENT)
+   ========================================= */
+.page-header {
+    height: 50vh;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    margin-top: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.page-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.page-header-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: var(--white);
+    animation: fadeIn 1s ease-out;
+}
+
+.page-header-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.page-header-content p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.content-page {
+    padding: 60px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.content-page h2 {
+    font-size: 2.2rem;
+    color: var(--text-color);
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.content-page h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 70px;
+    height: 3px;
+    background-color: var(--ferrari-red);
+    border-radius: 3px;
+}
+
+.content-page p {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--text-color);
+}
+
+.page-image {
+    width: 100%;
+    margin: 30px 0;
+    text-align: center;
+}
+
+.page-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: var(--shadow-md);
+}
+
+.page-section {
+    margin-bottom: 60px;
+}
+
+.page-section:last-child {
+    margin-bottom: 0;
+}
+
+.two-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin: 40px 0;
+}
+
+.column-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* =========================================
+   SOSTENIBILITÀ PAGE STYLES
+   ========================================= */
+.sostenibilita-main {
+    height: auto;
+    min-height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../img/sostenibilita1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 20px 60px;
+    position: relative;
+    overflow: hidden;
+}
+
+.sostenibilita-main::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 40, 0, 0.7) 0%, rgba(0, 0, 0, 0) 50%);
+    z-index: 1;
+}
+
+.sostenibilita-wrapper {
+    background-color: rgba(0, 0, 0, 0.75);
+    color: var(--white);
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    border-radius: 12px;
+    padding: 3rem;
+    gap: 3rem;
+    position: relative;
+    z-index: 2;
+    box-shadow: var(--shadow-lg);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.sostenibilita-main-content {
+    flex: 2;
+    min-width: 280px;
+}
+
+.sostenibilita-main-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--white);
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    border-left: 4px solid var(--ferrari-red);
+    padding-left: 15px;
+    line-height: 1.2;
+}
+
+.sostenibilita-main-content p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.sostenibilita-main-content p:last-of-type {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+.listbox-report {
+    flex: 1;
+    min-width: 250px;
+    background-color: rgba(255, 40, 0, 0.15);
+    padding: 2rem;
+    border-radius: 10px;
+    transition: var(--transition);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 40, 0, 0.3);
+}
+
+.listbox-report:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.listbox-report h3 {
+    font-size: 1.5rem;
+    color: var(--white);
+    margin-bottom: 1.5rem;
+    text-align: center;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.listbox-report h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background-color: var(--ferrari-red);
+    border-radius: 3px;
+}
+
+.listbox-report ul {
+    list-style: none;
+    padding: 0;
+}
+
+.listbox-report li {
+    margin-bottom: 1rem;
+    transition: transform 0.2s ease;
+}
+
+.listbox-report li:hover {
+    transform: translateX(5px);
+}
+
+.listbox-report a {
+    color: var(--white);
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: block;
+    padding: 10px 15px;
+    border-radius: 6px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-left: 3px solid transparent;
+}
+
+.listbox-report a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-left: 3px solid var(--ferrari-red);
+    color: var(--white);
+}
+
+.listbox-report i {
+    margin-right: 8px;
+    color: var(--ferrari-red);
+}
+
+.info-extra {
+    background-color: var(--light-gray);
+    padding: 5rem 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.info-extra::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 300px;
+    background-color: rgba(255, 40, 0, 0.05);
+    border-radius: 50%;
+    transform: translate(100px, -150px);
+    z-index: 0;
+}
+
+.info-extra::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 250px;
+    height: 250px;
+    background-color: rgba(255, 40, 0, 0.05);
+    border-radius: 50%;
+    transform: translate(-100px, 100px);
+    z-index: 0;
+}
+
+.info-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    color: var(--text-color);
+    position: relative;
+    z-index: 1;
+}
+
+.info-container h2 {
+    color: var(--ferrari-red);
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.info-container h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--ferrari-red);
+    border-radius: 4px;
+}
+
+.info-container h3 {
+    color: var(--text-color);
+    font-size: 1.6rem;
+    margin: 2rem 0 1rem;
+    position: relative;
+    padding-left: 20px;
+}
+
+.info-container h3::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 25px;
+    background-color: var(--ferrari-red);
+    border-radius: 4px;
+}
+
+.info-container p {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+    font-size: 1.1rem;
+    color: var(--text-color);
+    padding: 0 15px;
+}
+
+.sostenibilita-finale {
+    text-align: center;
+    margin: 4rem auto;
+    max-width: 1100px;
+    padding: 0 20px;
+}
+
+.sostenibilita-finale img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: var(--shadow-lg);
+    transition: var(--transition);
+}
+
+.sostenibilita-finale img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* =========================================
+   FAQ SECTION
+   ========================================= */
+.faq-section {
+    padding: 100px 20px 60px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.faq-section h1 {
+    text-align: center;
+    color: var(--ferrari-red);
+    margin-bottom: 50px;
+    font-size: 2.5rem;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.faq-section h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--ferrari-red);
+    border-radius: 4px;
+}
+
+.faq-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.faq-item {
+    background-color: var(--white);
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    overflow: hidden;
+    border: 1px solid #eee;
+}
+
+.faq-item:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-3px);
+}
+
+.faq-question {
+    padding: 20px 25px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text-color);
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: var(--transition);
+    position: relative;
+}
+
+.faq-question::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 5px;
+    height: 25px;
+    background-color: var(--ferrari-red);
+    border-radius: 3px;
+}
+
+.faq-question i {
+    font-size: 1.2rem;
+    transition: var(--transition);
+}
+
+.faq-question.active {
+    background-color: #f9f9f9;
+}
+
+.faq-question.active i {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    padding: 0 25px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.faq-answer-content {
+    padding: 0 0 20px;
+    color: var(--medium-gray);
+    line-height: 1.7;
+    font-size: 1rem;
+}
+
+.faq-answer.active {
+    max-height: 500px;
+}
+
+/* =========================================
+   FOOTER
+   ========================================= */
+footer {
+    background-color: var(--dark-gray);
+    color: var(--white);
+    padding: 0;
+    position: relative;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(to right, var(--ferrari-red), var(--ferrari-yellow), var(--ferrari-red));
+}
+
+.footer-top {
+    padding: 60px 20px 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-column h3 {
+    color: var(--white);
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-column h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background-color: var(--ferrari-red);
+    border-radius: 3px;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: #bbb;
+    transition: var(--transition);
+    display: block;
+    font-size: 0.95rem;
+    padding: 5px 0;
+}
+
+.footer-links a:hover {
+    color: var(--white);
+    transform: translateX(5px);
+}
+
+.footer-social {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.footer-social a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--white);
+    font-size: 1.2rem;
+    transition: var(--transition);
+}
+
+.footer-social a:hover {
+    background-color: var(--ferrari-red);
+    transform: translateY(-5px);
+}
+
+.footer-contact li {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+    color: #bbb;
+}
+
+.footer-contact i {
+    color: var(--ferrari-red);
+    font-size: 1.1rem;
+    margin-top: 3px;
+}
+
+.footer-contact p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.footer-contact a {
+    color: #bbb;
+    transition: var(--transition);
+}
+
+.footer-contact a:hover {
+    color: var(--white);
+}
+
+.footer-bottom {
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    text-align: center;
+    color: #aaa;
+    font-size: 0.9rem;
+}
+
+.footer-bottom a {
+    color: #ddd;
+    transition: var(--transition);
+}
+
+.footer-bottom a:hover {
+    color: var(--ferrari-red);
+}
+
+/* =========================================
+   SCROLL UP BUTTON
+   ========================================= */
+#scrollUpBtn {
+    display: none;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: var(--ferrari-red);
+    color: var(--white);
+    cursor: pointer;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    font-size: 22px;
+    box-shadow: 0 4px 15px rgba(255, 40, 0, 0.3);
+    transition: var(--transition);
+}
+
+#scrollUpBtn:hover {
+    background-color: var(--ferrari-red-dark);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(255, 40, 0, 0.4);
+}
+
+/* =========================================
+   ANIMAZIONI E EFFETTI
+   ========================================= */
+@keyframes slideInLeft {
+    from { transform: translateX(-50px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInRight {
+    from { transform: translateX(50px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+.animate-left {
+    animation: slideInLeft 0.8s ease-out forwards;
+}
+
+.animate-right {
+    animation: slideInRight 0.8s ease-out forwards;
+}
+
+.reveal {
+    position: relative;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animazione per il menu toggle */
+.menu-toggle-top.active {
+    transform: translateY(6px) rotate(45deg);
+}
+
+.menu-toggle-middle.active {
+    opacity: 0;
+}
+
+.menu-toggle-bottom.active {
+    transform: translateY(-6px) rotate(-45deg);
+}
+
+/* =========================================
+   RESPONSIVE DESIGN
+   ========================================= */
+@media (max-width: 1024px) {
+    .spotlight-content h1 {
+        font-size: 3.5rem;
+    }
+    
+    .spotlight-content h2 {
+        font-size: 1.6rem;
+    }
+    
+    .page-header-content h1 {
+        font-size: 3rem;
+    }
+    
+    .sostenibilita-main {
+        padding: 100px 20px 50px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-container {
+        height: 70px;
+        padding: 0 20px;
+    }
+    
+    .logo img {
+        height: 40px;
+    }
+    
+    .menu-toggle {
+        display: flex;
+    }
+    
+    nav ul {
+        position: fixed;
+        flex-direction: column;
+        background-color: var(--ferrari-red);
+        width: 100%;
+        top: 70px;
+        right: 0; /* Menu che si apre da destra */
+        left: auto;
+        padding: 20px 0;
+        text-align: right; /* Testo allineato a destra */
+        transform: translateX(100%); /* Si apre da destra invece che dall'alto */
+        transition: var(--transition);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        z-index: 999;
+    }
+    
+    nav ul.active {
+        transform: translateX(0);
+    }
+    
+    nav ul li {
+        margin: 15px 0;
+        padding-right: 30px; /* Padding a destra */
+    }
+    
+    nav ul li a {
+        padding: 10px 20px;
+    }
+    
+    nav ul li a::after {
+        display: none;
+    }
+    
+    .spotlight {
+        margin-top: 70px;
+        height: 80vh;
+    }
+    
+    .spotlight-overlay {
+        padding: 0 30px;
+    }
+    
+    .spotlight-content {
+        text-align: center;
+        margin-left: 0;
+    }
+    
+    .spotlight-content h1 {
+        font-size: 2.8rem;
+    }
+    
+    .spotlight-content h1::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .spotlight-content h2 {
+        font-size: 1.4rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .section-title h2 {
+        font-size: 2.2rem;
+    }
+    
+    .cards-container {
+        padding: 0 15px;
+    }
+    
+    .card {
+        height: 280px;
+    }
+    
+    .two-columns {
+        grid-template-columns: 1fr;
+    }
+    
+    .page-header {
+        margin-top: 70px;
+    }
+    
+    .page-header-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .sostenibilita-wrapper {
+        padding: 2rem;
+        gap: 2rem;
+    }
+    
+    .sostenibilita-main-content h1 {
+        font-size: 2rem;
+    }
+    
+    .info-container h2 {
+        font-size: 2rem;
+    }
+    
+    .info-container h3 {
+        font-size: 1.4rem;
+    }
+    
+    .footer-top {
+        padding: 40px 20px 20px;
+        gap: 30px;
+    }
+}
+
+@media (max-width: 576px) {
+    .spotlight-content h1 {
+        font-size: 2.2rem;
+    }
+    
+    .spotlight-content h2 {
+        font-size: 1.2rem;
+    }
+    
+    .section-title h2 {
+        font-size: 1.8rem;
+    }
+    
+    .section-title p {
+        font-size: 1rem;
+    }
+    
+    .card {
+        height: 250px;
+    }
+    
+    .card h3 {
+        font-size: 1.3rem;
+    }
+    
+    .slider img {
+        width: 250px;
+        height: 150px;
+    }
+    
+    .page-header-content h1 {
+        font-size: 2rem;
+    }
+    
+    .page-header-content p {
+        font-size: 1rem;
+    }
+    
+    .content-page h2 {
+        font-size: 1.8rem;
+    }
+    
+    .content-page p {
+        font-size: 1rem;
+    }
+    
+    .sostenibilita-main {
+        padding: 90px 15px 40px;
+    }
+    
+    .sostenibilita-wrapper {
+        padding: 1.5rem;
+        gap: 1.5rem;
+    }
+    
+    .sostenibilita-main-content h1 {
+        font-size: 1.8rem;
+        padding-left: 12px;
+    }
+    
+    .sostenibilita-main-content p {
+        font-size: 1.1rem;
+    }
+    
+    .listbox-report {
+        padding: 1.5rem;
+    }
+    
+    .info-container h2 {
+        font-size: 1.8rem;
+    }
+    
+    .info-container h3 {
+        font-size: 1.3rem;
+    }
+    
+    .info-container p {
+        font-size: 1rem;
+        padding: 0;
+    }
+    
+    .faq-section h1 {
+        font-size: 1.8rem;
+    }
+    
+    .faq-question {
+        font-size: 1rem;
+        padding: 15px 20px;
+    }
+    
+    #scrollUpBtn {
+        width: 45px;
+        height: 45px;
+        font-size: 18px;
+        bottom: 20px;
+        right: 20px;
+    }
+}

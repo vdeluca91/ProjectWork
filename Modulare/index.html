@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ferrari - Home</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="icon" href="../assets/img/favicon.png">
+</head>
+<body>
+    <!-- Include del menu -->
+    <div id="menu-container"></div>
+
+    <!-- spotlight Section -->
+    <section class="spotlight">
+        <div class="spotlight-overlay">
+            <div class="spotlight-content">
+                <h1>Passione e Innovazione</h1>
+                <h2>Eccellenza italiana nel mondo</h2>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cards Section -->
+    <section class="cards-container">
+        <a href="storia.html" class="card-link">
+            <div class="card card-storia">
+                <div class="card-content">
+                    <h3>STORIA</h3>
+                    <p>Scopri la leggendaria storia di Ferrari, un simbolo dell'eccellenza italiana nel mondo.</p>
+                    <span class="arrow">→</span>
+                </div>
+            </div>
+        </a>
+        
+        <a href="gruppoFerrari.html" class="card-link">
+            <div class="card card-gruppo">
+                <div class="card-content">
+                    <h3>GRUPPO FERRARI</h3>
+                    <p>La struttura organizzativa e le divisioni del Gruppo Ferrari.</p>
+                    <span class="arrow">→</span>
+                </div>
+            </div>
+        </a>
+        
+        <a href="sostenibilita.html" class="card-link">
+            <div class="card card-sostenibilita">
+                <div class="card-content">
+                    <h3>SOSTENIBILITÀ</h3>
+                    <p>Il nostro impegno per un futuro più sostenibile e responsabile.</p>
+                    <span class="arrow">→</span>
+                </div>
+            </div>
+        </a>
+        
+        <a href="management.html" class="card-link">
+            <div class="card card-management">
+                <div class="card-content">
+                    <h3>MANAGEMENT</h3>
+                    <p>I leader che guidano Ferrari verso il futuro.</p>
+                    <span class="arrow">→</span>
+                </div>
+            </div>
+        </a>
+    </section>
+
+    <!-- Slider Section -->
+    <section class="slider">
+        <div class="slider-track">
+            <img src="../assets/img/slider1.jpg" alt="Ferrari Sports Car" />
+            <img src="../assets/img/slider2.jpg" alt="Ferrari Factory" />
+            <img src="../assets/img/slider3.jpg" alt="Racing Team" />
+            <img src="../assets/img/slider4.jpg" alt="Design Studio" />
+            <img src="../assets/img/slider5.jpg" alt="Ferrari Engine" />
+            <img src="../assets/img/slider6.jpg" alt="Ferrari Interior" />
+            <img src="../assets/img/slider7.jpg" alt="Museum" />
+            <img src="../assets/img/slider8.jpg" alt="Classic Ferrari" />
+            <img src="../assets/img/slider9.jpg" alt="Sustainable Initiatives" />
+        </div>
+    </section>
+
+    <!-- Include del footer -->
+    <div id="footer-container"></div>
+
+    <script src="js_modulare/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Carica i componenti
+            loadComponent('menu-container', 'menu.html', function() {
+                // Imposta la voce di menu attiva
+                document.getElementById('nav-home').classList.add('active');
+            });
+            loadComponent('footer-container', 'footer.html');
+        });
+    </script>
+</body>
+</html>

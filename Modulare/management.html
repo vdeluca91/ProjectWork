@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Management - Ferrari</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="icon" href="../assets/img/favicon.png">
+</head>
+<body>
+    <!-- Include del menu -->
+    <div id="menu-container"></div>
+
+    <!-- Contenuto principale - team management -->
+    <section class="content-page">
+        <h1>Il Management Ferrari</h1>
+        <p class="intro-text">Un team di leader visionari che guidano Ferrari verso nuove sfide, mantenendo il DNA unico del marchio.</p>
+        
+        <div class="page-image">
+            <img src="../assets/img/management.jpg" alt="Management Ferrari" />
+        </div>
+        
+        <div class="text-content">
+            <h2>Leadership e visione</h2>
+            <p>
+                Il team dirigenziale di Ferrari unisce profonda esperienza nel settore automobilistico, visione strategica e passione per l'eccellenza. Guidato da professionisti di alto profilo, il management Ferrari lavora quotidianamente per portare avanti l'eredità del Cavallino Rampante, coniugando tradizione e innovazione.
+            </p>
+            
+            <h3>Aree chiave di gestione</h3>
+            <div class="management-areas">
+                <div class="area-box">
+                    <h4>Direzione Strategica</h4>
+                    <p>Definizione della vision e degli obiettivi a lungo termine, con particolare attenzione alla sostenibilità e all'innovazione tecnologica.</p>
+                </div>
+                
+                <div class="area-box">
+                    <h4>Operazioni e Produzione</h4>
+                    <p>Supervisione dei processi produttivi, con focus sulla qualità artigianale e sull'efficienza operativa.</p>
+                </div>
+                
+                <div class="area-box">
+                    <h4>Ricerca e Sviluppo</h4>
+                    <p>Guida dell'innovazione tecnologica, dalla motoristica alle soluzioni ibride ed elettriche, per mantenere la leadership nelle prestazioni.</p>
+                </div>
+                
+                <div class="area-box">
+                    <h4>Marketing e Brand</h4>
+                    <p>Valorizzazione del marchio Ferrari a livello globale, gestione della comunicazione e delle strategie di posizionamento nel mercato del lusso.</p>
+                </div>
+            </div>
+            
+            <p>
+                L'impegno del management Ferrari si concretizza anche nella crescente attenzione alla sostenibilità, con l'obiettivo di guidare l'azienda verso un futuro in cui prestazioni eccezionali ed eccellenza possano coesistere con un approccio responsabile alle sfide ambientali e sociali.
+            </p>
+        </div>
+    </section>
+
+    <!-- Include del footer -->
+    <div id="footer-container"></div>
+
+    <script src="js_modulare/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Carica i componenti
+            loadComponent('menu-container', 'menu.html', function() {
+                // Imposta la voce di menu attiva
+                document.getElementById('nav-management').classList.add('active');
+            });
+            loadComponent('footer-container', 'footer.html');
+        });
+    </script>
+</body>
+</html>
