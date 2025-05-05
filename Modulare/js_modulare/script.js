@@ -40,37 +40,59 @@ function loadComponent(containerId, componentPath, callback) {
     }
 }
 
-// Script per il pulsante "Torna in cima"
 document.addEventListener('DOMContentLoaded', function() {
-    // Il riferimento al pulsante verrà acquisito dopo il caricamento del footer
+    // Aspetta 100ms prima di inizializzare la gestione header
     setTimeout(function() {
-        const scrollBtn = document.getElementById('scrollUpBtn');
-        if (scrollBtn) {
-            // Mostra/nascondi il pulsante in base allo scroll
+        // Acquisizione riferimenti elementi header
+        const header = document.querySelector('header');
+        const logo = document.querySelector('.logo img');
+        
+        // Gestione dello scroll per l'header
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 100) {
+                // Quando l'utente scende nella pagina
+                header.classList.add('header-scrolled');
+                logo.classList.add('logo-scrolled');
+            } else {
+                // Quando l'utente torna in alto
+                header.classList.remove('header-scrolled');
+                logo.classList.remove('logo-scrolled');
+            }
+        });
+    }, 100);
+    
+    // Aspetta 300ms prima di inizializzare la gestione del pulsante di scroll
+    setTimeout(function() {
+        // Riferimento al pulsante di scroll
+        const scrollUpBtn = document.getElementById('scrollUpBtn');
+        
+        if (scrollUpBtn) {
+            // Gestione visibilità del pulsante in base allo scroll
             window.addEventListener('scroll', function() {
-                if (window.scrollY > 300) {
-                    scrollBtn.style.display = 'block';
+                if (window.pageYOffset > 100) {
+                    scrollUpBtn.style.display = 'block';
                 } else {
-                    scrollBtn.style.display = 'none';
+                    scrollUpBtn.style.display = 'none';
                 }
             });
             
-            // Torna in cima quando il pulsante viene cliccato
-            scrollBtn.addEventListener('click', function() {
+            // Gestione click sul pulsante "torna su"
+            scrollUpBtn.addEventListener('click', function() {
                 window.scrollTo({
                     top: 0,
                     behavior: 'smooth'
                 });
             });
         }
-    }, 500); // Piccolo ritardo per assicurarsi che il footer sia caricato
+    }, 300);
     
-    // Mobile menu toggle (dopo il caricamento del menu)
+    // Aspetta 500ms prima di inizializzare la gestione del menu mobile
     setTimeout(function() {
+        // Gestione menu mobile
         const menuToggle = document.querySelector('.menu-toggle');
         const navMenu = document.querySelector('nav ul');
         
-        if (menuToggle) {
+        if (menuToggle && navMenu) {
             menuToggle.addEventListener('click', function() {
                 navMenu.classList.toggle('active');
                 menuToggle.classList.toggle('active');

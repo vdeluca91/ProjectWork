@@ -24,26 +24,34 @@ function setActiveNavLink() {
 document.addEventListener('DOMContentLoaded', function() {
     setActiveNavLink();
 
+    const header = document.querySelector('header');
+    const logo = document.querySelector('.logo img');
     // Riferimento al pulsante
     const scrollBtn = document.getElementById('scrollUpBtn');
-  // Gestione del pulsante scroll-to-top
-  const scrollUpBtn = document.getElementById('scrollUpBtn');
-    
-  window.addEventListener('scroll', function() {
-      if (window.pageYOffset > 300) {
-          scrollUpBtn.style.display = 'block';
-      } else {
-          scrollUpBtn.style.display = 'none';
-      }
-  });
-  
-  scrollUpBtn.addEventListener('click', function() {
-      window.scrollTo({
-          top: 0,
-          behavior: 'smooth'
-      });
-  });
-  
+    // Gestione del pulsante scroll-to-top
+    const scrollUpBtn = document.getElementById('scrollUpBtn');
+
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 100) {
+            // Quando l'utente scende nella pagina
+            header.classList.add('header-scrolled');
+            logo.classList.add('logo-scrolled');
+            scrollUpBtn.style.display = 'block';
+        } else {
+            // Quando l'utente torna in alto
+            header.classList.remove('header-scrolled');
+            logo.classList.remove('logo-scrolled');
+            scrollUpBtn.style.display = 'none';
+        }
+    });
+
+    scrollUpBtn.addEventListener('click', function() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
   // Gestione menu mobile
   const menuToggle = document.querySelector('.menu-toggle');
   const navMenu = document.querySelector('nav ul');

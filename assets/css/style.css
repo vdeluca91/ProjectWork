@@ -42,9 +42,8 @@ body {
     overflow-x: hidden;
 }
 
-/* Header */
 header {
-    background-color: var(--ferrari-red); /* Rosso Ferrari */
+    background-color: var(--ferrari-red);
     padding: 15px 30px;
     display: flex;
     justify-content: space-between;
@@ -53,10 +52,19 @@ header {
     top: 0;
     z-index: 1000;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: var(--transition);
+    transition: all 0.3s ease;
+    height: 90px; /* Altezza iniziale */
 }
 
 
+
+/* Header dopo lo scroll */
+.header-scrolled {
+    padding: 8px 30px;
+    background-color: rgba(255, 40, 0, 0.95); /* Leggermente trasparente */
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    height: 65px; /* Altezza ridotta dopo lo scroll */
+}
 
 img {
     max-width: 100%;
@@ -82,9 +90,15 @@ ul {
     align-items: center;
 }
 
+/* Logo originale */
 .logo img {
     height: 60px;
     margin-right: 1px;
+    transition: all 0.3s ease;
+}
+/* Logo dopo lo scroll */
+.logo-scrolled {
+    height: 35px; /* Logo più piccolo dopo lo scroll */
 }
 
 .logo span {
